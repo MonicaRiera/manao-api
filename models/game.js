@@ -20,7 +20,7 @@ const Game = mongoose.model('game', {
     },
     duration: {
         type: Number,
-        required: [true, 'duration is required']
+        required: [true, 'Duration is required']
     },
     tags: [{
         type: mongoose.Schema.Types.ObjectId,
