@@ -1,7 +1,7 @@
-const Quiz = require('../models/quiz')
+const History = require('../models/history')
 
 module.exports = (req, res) => {
-	Quiz.create(req.body)
+	History.create(req.body)
 	.then(data => {
 		res.send(data)
 	})
