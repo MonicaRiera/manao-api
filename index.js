@@ -19,6 +19,8 @@ app.post('/history', require('./controllers/postHistory'))
 app.post('/users', require('./controllers/postUser'))
 app.get('/users/:id', require('./controllers/getUser'))
 
+app.post('/tags', require('./controllers/postTag'))
+
 app.listen(process.env.PORT, () => {
 	console.log('Ready on port 4000')
 })
