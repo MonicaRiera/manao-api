@@ -15,6 +15,8 @@ app.post('/quizzes', require('./controllers/postQuiz'))
 
 app.post('/games', require('./controllers/postGame'))
 
+app.post('/users', require('./controllers/postUser'))
+
 app.listen(process.env.PORT, () => {
 	console.log('Ready on port 4000')
 })
