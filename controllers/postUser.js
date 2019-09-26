@@ -1,12 +1,25 @@
 const User = require('../models/user')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 module.exports = (req, res) => {
-    console.log(req.body)
 
-    User.create(req.body)
-        .then(data => {
-            res.send(data)
-        })
-        .catch(err => { console.log(err) })
+	User.findOne({email: req.body.email})
+	.then(data => {
+		if (data) {
+			res.send('USER ALREADY EXISTS')
+		} else {
+			req.body.password = bcrypt.hashSync(req.body.password, 10)
+			User.create(req.body).then(data => {
+				let object = data.toObject()
+				delete object.avatar
+				delete object.name
+				delete object.nationality
+				delete object.password
+				let token = jwt.sign(object, process.env.SECRET)
+				res.send({token: token})
+			})
+		}
+	})
+
 }
-
