@@ -17,6 +17,7 @@ app.post('/quizzes', require('./controllers/postQuiz'))
 app.post('/games', require('./controllers/postGame'))
 app.get('/games', require('./controllers/getGames'))
 app.get('/games/:id', require('./controllers/getGame'))
+app.patch('/games/:id', require('./controllers/patchGame'))
 app.get('/games/:id/quizzes', require('./controllers/getGameQuizzes'))
 
 app.post('/history', require('./controllers/postHistory'))

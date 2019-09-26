@@ -37,8 +37,11 @@ const Game = mongoose.model('game', {
     creationDate: {
         type: String,
         default: Date.now()
-    }
+    },
+		rating: {
+			type: [Number],
+			default: []
+		}
 })
 
 module.exports = Game
-
