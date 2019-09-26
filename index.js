@@ -20,6 +20,7 @@ app.get('/games/:id', require('./controllers/getGame'))
 app.get('/games/:id/quizzes', require('./controllers/getGameQuizzes'))
 
 app.post('/history', require('./controllers/postHistory'))
+app.get('/history/:userId', require('./controllers/getUserHistory'))
 
 app.post('/users', require('./controllers/postUser'))
 app.get('/users/:id', require('./controllers/getUser'))
