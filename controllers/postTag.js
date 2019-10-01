@@ -1,7 +1,6 @@
 const Tag = require('../models/tag')
 
 module.exports = (req, res) => {
-    console.log(req.body)
 
     Tag.create(req.body)
         .then(data => {
@@ -9,4 +8,3 @@ module.exports = (req, res) => {
         })
         .catch(err => { console.log(err) })
 }
-

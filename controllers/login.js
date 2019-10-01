@@ -15,5 +15,5 @@ module.exports = (req, res) => {
 			res.send('WRONG PASSWORD')
 		}
 	})
-	.catch(error => res.send('USER NOT FOUND: ' + error))
+	.catch(error => res.send('USER NOT FOUND'))
 }
