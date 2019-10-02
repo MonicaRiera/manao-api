@@ -3,12 +3,11 @@ const mongoose = require('mongoose')
 const Game = mongoose.model('game', {
     title: {
         type: String,
-        default: "https://randomuser.me/api/portraits/lego/1.jpg",
-        required: [true, 'title is required']
+        required: [true, 'Title is required']
     },
     image: {
         type: String,
-        default: "https://randomuser.me/api/portraits/lego/1.jpg"
+        default: "../assets/manao.png"
     },
     intro: {
         type: String,
@@ -30,17 +29,40 @@ const Game = mongoose.model('game', {
         type: String,
         required: [true, 'Location is required']
     },
+		startingPoint: {
+			lat: {
+				type: Number,
+				required: [true, 'Please provide latitude']
+			},
+			lng: {
+				type: Number,
+				required: [true, 'Please provide longitude']
+			}
+		},
     quizzes: [{
+			quiz: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'quiz'
-    }],
+			},
+			order: {
+				type: Number
+			}
+		}],
     creationDate: {
         type: String,
         default: Date.now()
     },
-		rating: {
+		ratings: {
 			type: [Number],
 			default: []
+		},
+		price: {
+			type: Number,
+			default: 0
+		},
+		distance: {
+			type: Number,
+			required: [true, 'Please provide average distance']
 		}
 })
 
