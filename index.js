@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get('/', require('./controllers/root'))
+app.get('/auth', require('./controllers/auth'))
 
 app.post('/quizzes', require('./controllers/postQuiz'))
 
