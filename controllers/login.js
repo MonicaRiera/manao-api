@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 
 module.exports = (req, res) => {
-	User.findOne({email: req.body.email}).select('email password')
+	User.findOne({email: req.body.email}).select('email password name avatar')
 	.then(data => {
 		let match = bcrypt.compareSync(req.body.password, data.password)
 		if(match) {
