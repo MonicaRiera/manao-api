@@ -5,7 +5,7 @@ const User = require('../models/user')
 module.exports = (req, res) => {
 
 	History.find({}).lean()
-  .then(history => res.send(history))
+  .then(history => { console.log(history) res.send(history)})
 	.catch(error => res.send(error))
 }
 
