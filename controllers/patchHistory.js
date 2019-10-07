@@ -3,7 +3,7 @@ const User = require('../models/user')
 
 
 module.exports = (req, res) => {
-
+	console.log("heyyyyyy")
 	History.findOne({_id: req.params.historyId}).lean()
   .then(history => {
 
