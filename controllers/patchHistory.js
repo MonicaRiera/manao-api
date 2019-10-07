@@ -3,23 +3,20 @@ const User = require('../models/user')
 
 
 module.exports = (req, res) => {
-	console.log("heyyyyyy")
+
 	History.findOne({_id: req.params.historyId}).lean()
   .then(history => {
-
-		let updatedHistory = history.players.forEach( player => {
-			if(player.user === req.body.userId) {
+		history.players.forEach( player => {
+			if(String(player.user) === req.body.userId) {
 				player.score = req.body.score
 			}
 		})
 
-		console.log("===>", updatedHistory)
+		console.log("===>", history)
 
-		History.findByIdAndUpdate(req.params.historyId, updatedHistory)
+		History.findByIdAndUpdate(req.params.historyId, history, {new:true})
 		.then(updatedHistory => res.send(updatedHistory))
-			.catch(error => res.send(error))
   })
-
 	.catch(error => res.send(error))
 }
 
