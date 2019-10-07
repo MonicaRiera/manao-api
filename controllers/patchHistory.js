@@ -8,7 +8,7 @@ module.exports = (req, res) => {
   .then(history => {
 
 		let updatedHistory = history.players.forEach( player => {
-			if(player._id === req.body.userId) {
+			if(player.user === req.body.userId) {
 				player.score = req.body.score
 			}
 		})
@@ -17,6 +17,7 @@ module.exports = (req, res) => {
 
 		History.findByIdAndUpdate(req.params.historyId, updatedHistory)
 		.then(updatedHistory => res.send(updatedHistory))
+			.catch(error => res.send(error))
   })
 
 	.catch(error => res.send(error))
