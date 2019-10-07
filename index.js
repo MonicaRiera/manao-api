@@ -28,6 +28,7 @@ app.get('/history/:userId', require('./controllers/getUserHistory'))
 
 app.post('/users', require('./controllers/postUser'))
 app.get('/users/:id', require('./controllers/getUser'))
+app.patch('/users/:id', require('./controllers/patchUser'))
 
 app.post('/tags', require('./controllers/postTag'))
 
