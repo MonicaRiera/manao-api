@@ -6,8 +6,8 @@ module.exports = (req, res) => {
 
 	History.findOne({_id: req.params.historyId})
   .then(history => {
-    console.log(history)
-    res.send(history)
+    console.log('hello')
+    res.send('hello')
   })
 	.catch(error => res.send(error))
 }
