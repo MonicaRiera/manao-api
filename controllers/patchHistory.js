@@ -5,7 +5,19 @@ const User = require('../models/user')
 module.exports = (req, res) => {
 
 	History.findOne({_id: req.params.historyId}).lean()
-  .then(history => res.send(history))
+  .then(history => {
+
+		let updatedHistory = history.players.forEach( player => {
+			if(player._id === req.body.userId) {
+				player.score = req.body.score
+			}
+		})
+
+		console.log("===>", updatedHistory)
+
+		History.findByIdAndUpdate(req.params.historyId, updatedHistory)
+		.then(updatedHistory => res.send(updatedHistory))
+  })
 
 	.catch(error => res.send(error))
 }
