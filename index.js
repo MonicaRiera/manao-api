@@ -21,9 +21,10 @@ app.get('/games/:id', require('./controllers/getGame'))
 app.patch('/games/:id', require('./controllers/patchGame'))
 app.get('/games/:id/quizzes', require('./controllers/getGameQuizzes'))
 
+app.patch('/history/:historyId', require('./controllers/patchHistory'))
 app.post('/history', require('./controllers/postHistory'))
 app.get('/history/:userId', require('./controllers/getUserHistory'))
-app.patch('/history', require('./controllers/patchHistory'))
+
 
 app.post('/users', require('./controllers/postUser'))
 app.get('/users/:id', require('./controllers/getUser'))

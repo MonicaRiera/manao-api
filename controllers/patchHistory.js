@@ -4,7 +4,7 @@ const User = require('../models/user')
 
 module.exports = (req, res) => {
 
-	History.find({}).lean()
+	History.findOne({_id: req.params.historyId}).lean()
   .then(histories => res.send(histories))
 
 	.catch(error => res.send(error))
