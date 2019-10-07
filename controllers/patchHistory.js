@@ -4,7 +4,7 @@ const User = require('../models/user')
 
 module.exports = (req, res) => {
 	console.log("heyyyyyy")
-	History.findOne({_id: req.params.historyId})..populate('players.user').lean()
+	History.findOne({_id: req.params.historyId}).populate('players.user').lean()
   .then(history => {
 
 		let updatedHistory = history.players.forEach( player => {
